@@ -1,0 +1,11 @@
+{
+    "watch": ["src"],           
+    "ext": "ts,json",           
+    "ignore": ["src/tests"],    
+    "exec": "tsc -build", 
+    "env": {
+      "NODE_ENV": "development" 
+    },
+    "verbose": true             
+  }
+  

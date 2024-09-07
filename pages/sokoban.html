@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!--
+    Author: Runtime
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,113 +12,170 @@
 </head>
 <body>
     <div id="gameScene">
-        <!-- main game -->
+
+        <!-- game scene -->
         <div id="gamePlayingScene" class="Scene"></div>
 
+        <!-- controls ui -->
         <div id="infoScene" class="Scene ColumnFlex">
-
             <div class="ColumnFlex" style="height: 15%;">
                 <div style="font-size: 10px;padding: 5px;background-color: rgba(0, 0, 0, 0.5);color:#ccc">
-                    <span>Level: 10</span>
-                    <span>Score: 10</span>
-                    <span>Step: 10</span>
+                    Level: <span id="levelTxt"></span>
+                    Score: <span id="scoreTxt"></span>
+                    Step: <span id="stepTxt"></span>
                 </div>
                 <div style="width: 100%;flex-direction: row;" class="ColumnFlex">
                     <div style="width: 70%;height:100%;margin-top: 5px;">
-                        <button class="InfoBtn">
+                        <button class="InfoBtn" id="gameBackBtn">
                             <i class="bi-arrow-left" style="font-size: 2rem; color: rgb(241, 244, 250);"></i>
                         </button>
-                        <button class="InfoBtn">
+                        <button class="InfoBtn" id="restartBtn">
                             <i class="bi-arrow-repeat" style="font-size: 2rem; color: rgb(100, 237, 130);"></i>
                         </button>
-                        <button class="InfoBtn">
+                        <button class="InfoBtn" id="saveStateBtn">
                             <i class="bi-floppy" style="font-size: 2rem; color: rgb(100, 232, 237);"></i>
                         </button>
                     </div>
 
-                    <button class="InfoBtn">
+                    <button class="InfoBtn" id="trophyBtn">
                         <i class="bi-trophy-fill" style="font-size: 2rem; color: rgb(220, 247, 72);"></i>
                     </button>
                 </div>
             </div>
             
-            <div style="height: 60%;background-color: rgba(0, 0, 0, 0.5);color: white;visibility: hidden;" class="ColumnFlex">
-                <span>Congrats, you have won</span>
+            <div class="ColumnFlex" id="levelDoneInfo">
+                <span id="levelDoneText"></span>
             </div>
 
-            <!-- floor control  -->
-            <div style="height: 25%;flex-direction: row;" class="ColumnFlex">
+            <!-- controls  -->
+            <div style="height: 25%;flex-direction: row;margin: 5px;" class="ColumnFlex">
                 <div style="width: 50%;height: 100%;" class="ColumnFlex">
-                    <table>
-                        <tr>
-                            <td>
-                                <button class="InfoBtn ControlBtn" style="box-shadow: 2px 2px 3px 4px #7dfa78;">
-                                    <i class="bi-trophy-fill" style="font-size: 2rem;"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="InfoBtn ControlBtn" style="visibility: hidden;">
-                                    <i class="bi-trophy-fill" style="font-size: 2rem;"></i>
-                                </button>
-                                <button class="InfoBtn ControlBtn" style="box-shadow: 2px 2px 3px 4px #78acfa;">
-                                    <i class="bi-clock-history" style="font-size: 2rem;"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                    <button class="InfoBtn ControlBtn" id="historyBtn" style="box-shadow: 2px 2px 3px 4px #78acfa;">
+                        <i class="bi-clock-history" style="font-size: 2rem;"></i>
+                    </button>
                 </div>
                 <div style="width: 50%;height: 100%;" class="ColumnFlex">
                     <table>
                         <tr>
                             <td>
-                                <button class="InfoBtn" style="visibility: hidden;">
-                                    <i class="bi-trophy-fill" style="font-size: 2rem;"></i>
+                                <button class="InfoBtn ControlBtn" id="moveLeftBtn">
+                                    <i class="bi-arrow-up-left" style="font-size: 2rem;"></i>
                                 </button>
                             </td>
                             <td>
-                                <button class="InfoBtn ControlBtn" style=" color: rgb(122, 247, 72);">
-                                    <i class="bi-arrows-move" style="font-size: 2rem;"></i>
+                                <button class="InfoBtn ControlBtn" id="moveTopBtn">
+                                    <i class="bi-arrow-up-right" style="font-size: 2rem;"></i>
                                 </button>
                             </td>
+
                         </tr>
                         <tr>
                             <td>
-                                <button class="InfoBtn ControlBtn">
-                                    <i class="bi-arrow-counterclockwise" style="font-size: 2rem;"></i>
+                                <button class="InfoBtn ControlBtn" id="moveBottomBtn">
+                                    <i class="bi-arrow-down-left" style="font-size: 2rem;"></i>
                                 </button>
                             </td>
                             <td>
-                                <button class="InfoBtn ControlBtn">
-                                    <i class="bi-arrow-clockwise" style="font-size: 2rem;"></i>
+                                <button class="InfoBtn ControlBtn" id="moveRightBtn">
+                                    <i class="bi-arrow-down-right" style="font-size: 2rem;"></i>
                                 </button>
                             </td>
                         </tr>
-                        
                     </table>
                 </div>
             </div>
         </div>
 
-        <div class="Scene ColumnFlex" id="mainScene" style="opacity: 0;">
+        <!-- menu scene -->
+        <div class="Scene ColumnFlex" id="menuScene" style="position: relative;top: -200%;background-color: white;">
+            <div>
+                <img src="../assets/images/sokobanHead.png" style="width: 90px;height: 90px;">
+            </div>
             <p style="font-size: 20px;">Sokoban 3D</p>
-            <button class="MenuBtn">
+            <button class="MenuBtn" id="continueBtn">
                 <i class="bi-play" style="font-size: 1rem;"></i>
                 Continue
             </button>
-            <button class="MenuBtn">
-                <i class="bi-bar-char" style="font-size: 1rem;"></i>
+            <button class="MenuBtn" id="levelBtn">
+                <i class="bi-bar-chart" style="font-size: 1rem;"></i>
                 Level
             </button>
-            <button class="MenuBtn">
+            <button class="MenuBtn" id="aboutBtn">
                 <i class="bi-info" style="font-size: 1rem;"></i>
                 About
             </button>
         </div>
 
+        <!--preloader -->
         <div class="Scene ColumnFlex" style="position: relative;top: -300%;background-color: white;" id="loadingScreen">
             <p style="font-size: 10px;">Loading...</p>
+        </div>
+
+        <!-- select level scene -->
+        <div class="Scene ColumnFlex HideVisibility" id="levelSelectScene" style="font-size: 10px;position: relative;top:-300%;background-color: rgb(163, 212, 216);">
+            <h3 style="margin-bottom: 10px;">Select Level</h3>
+            <table>
+                <tr>
+                    <td><button class="levelSelectBtn">1</button></td>
+                    <td><button class="levelSelectBtn">2</button></td>
+                    <td><button class="levelSelectBtn">3</button></td>
+                    <td><button class="levelSelectBtn">4</button></td>
+                    <td><button class="levelSelectBtn">5</button></td>
+                </tr>
+                <tr>
+                    <td><button class="levelSelectBtn">6</button></td>
+                    <td><button class="levelSelectBtn">7</button></td>
+                    <td><button class="levelSelectBtn">8</button></td>
+                    <td><button class="levelSelectBtn">9</button></td>
+                    <td><button class="levelSelectBtn">10</button></td>
+                </tr>
+                <tr>
+                    <td><button class="levelSelectBtn">11</button></td>
+                    <td><button class="levelSelectBtn">12</button></td>
+                    <td><button class="levelSelectBtn">13</button></td>
+                    <td><button class="levelSelectBtn">14</button></td>
+                    <td><button class="levelSelectBtn">15</button></td>
+                </tr>
+            </table>
+            <button class="MenuBtn" id="levelBackBtn">
+                <i class="bi-arrow-left" style="font-size: 1rem;"></i>
+                Back
+            </button>
+        </div>
+
+        <!-- about scene -->
+        <div class="Scene" id="aboutScene" style="line-height:2em; background-color: white;height:100%;padding:10px;position: relative;top:-500%;font-size: 10px;z-index: 99999; ">
+            <div>
+                <button class="MenuBtn" id="aboutBackBtn">
+                    <i class="bi-arrow-left" style="font-size: 1rem;"></i>
+                    Back
+                </button>
+                <div style="margin-bottom: 10px;">
+                    <h2>About</h2>
+                    <small>This game was created by <a href="https://github.com/Bytenol/">Bytenol</a> on github a.k.a[RuntimeTerror]. More info about the history on sokoban could be found on <a href="https://en.wikipedia.org/wiki/Sokoban">https://en.wikipedia.org/wiki/Sokoban</a></small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Playing Strategy</h2>
+                    <small>Press the directional arrow keys on the screen or from the keyboard to let the worker move across the the factory. 
+                        If a crate is obstructing the workers path, he will try to push it forward to the same direction. The worker and the crate cannot move through the block and your objective is to push each block to their irrespected destination.
+                        You are allowed to reverse your action just on four consecutive times.
+                    </small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Credit</h2>
+                    <small>I designed steeve[Player] 3d model myself using blender. Other sprites and texture data are randomly source online.
+                        The level map design was obtained from the <a href="https://code.sololearn.com/WItp1XM2DGFm/#">code</a> on Sololearn
+                    </small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Contribute</h2>
+                    <small>Feel free to join my discord server and learn how to make your own games, networking and other programming related stuffs</small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Copyright</h2>
+                    <small>&copy; Bytenol 2024.</small>
+                </div>
+            </div>
         </div>
         
     </div>

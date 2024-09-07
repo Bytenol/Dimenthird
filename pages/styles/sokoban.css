@@ -5,13 +5,13 @@
     font-weight: normal;
     font-style: normal;
 }
-  
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Press Start 2P', Georgia, Times, 'Times New Roman', serif;
+    transition: 1s;
 }
 
 .ColumnFlex {
@@ -63,4 +63,16 @@ button {
 
 .MenuBtn {
     margin: 5px;
+}
+
+#levelDoneInfo {
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 0;
+    transition:all 1s ease;
+}
+
+.HideVisibility {
+    visibility: hidden;
 }

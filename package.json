@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "@types/three": "^0.168.0",
+    "bootstrap-icons": "^1.11.3",
     "three": "^0.168.0"
   },
   "devDependencies": {

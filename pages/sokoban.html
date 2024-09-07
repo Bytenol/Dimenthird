@@ -8,6 +8,116 @@
     <script type="module" src="../src/sokoban.js"></script>
 </head>
 <body>
-    <div id="gameScene"></div>
+    <div id="gameScene">
+        <!-- main game -->
+        <div id="gamePlayingScene" class="Scene"></div>
+
+        <div id="infoScene" class="Scene ColumnFlex">
+
+            <div class="ColumnFlex" style="height: 15%;">
+                <div style="font-size: 10px;padding: 5px;background-color: rgba(0, 0, 0, 0.5);color:#ccc">
+                    <span>Level: 10</span>
+                    <span>Score: 10</span>
+                    <span>Step: 10</span>
+                </div>
+                <div style="width: 100%;flex-direction: row;" class="ColumnFlex">
+                    <div style="width: 70%;height:100%;margin-top: 5px;">
+                        <button class="InfoBtn">
+                            <i class="bi-arrow-left" style="font-size: 2rem; color: rgb(241, 244, 250);"></i>
+                        </button>
+                        <button class="InfoBtn">
+                            <i class="bi-arrow-repeat" style="font-size: 2rem; color: rgb(100, 237, 130);"></i>
+                        </button>
+                        <button class="InfoBtn">
+                            <i class="bi-floppy" style="font-size: 2rem; color: rgb(100, 232, 237);"></i>
+                        </button>
+                    </div>
+
+                    <button class="InfoBtn">
+                        <i class="bi-trophy-fill" style="font-size: 2rem; color: rgb(220, 247, 72);"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div style="height: 60%;background-color: rgba(0, 0, 0, 0.5);color: white;visibility: hidden;" class="ColumnFlex">
+                <span>Congrats, you have won</span>
+            </div>
+
+            <!-- floor control  -->
+            <div style="height: 25%;flex-direction: row;" class="ColumnFlex">
+                <div style="width: 50%;height: 100%;" class="ColumnFlex">
+                    <table>
+                        <tr>
+                            <td>
+                                <button class="InfoBtn ControlBtn" style="box-shadow: 2px 2px 3px 4px #7dfa78;">
+                                    <i class="bi-trophy-fill" style="font-size: 2rem;"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="InfoBtn ControlBtn" style="visibility: hidden;">
+                                    <i class="bi-trophy-fill" style="font-size: 2rem;"></i>
+                                </button>
+                                <button class="InfoBtn ControlBtn" style="box-shadow: 2px 2px 3px 4px #78acfa;">
+                                    <i class="bi-clock-history" style="font-size: 2rem;"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="width: 50%;height: 100%;" class="ColumnFlex">
+                    <table>
+                        <tr>
+                            <td>
+                                <button class="InfoBtn" style="visibility: hidden;">
+                                    <i class="bi-trophy-fill" style="font-size: 2rem;"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="InfoBtn ControlBtn" style=" color: rgb(122, 247, 72);">
+                                    <i class="bi-arrows-move" style="font-size: 2rem;"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="InfoBtn ControlBtn">
+                                    <i class="bi-arrow-counterclockwise" style="font-size: 2rem;"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="InfoBtn ControlBtn">
+                                    <i class="bi-arrow-clockwise" style="font-size: 2rem;"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="Scene ColumnFlex" id="mainScene" style="opacity: 0;">
+            <p style="font-size: 20px;">Sokoban 3D</p>
+            <button class="MenuBtn">
+                <i class="bi-play" style="font-size: 1rem;"></i>
+                Continue
+            </button>
+            <button class="MenuBtn">
+                <i class="bi-bar-char" style="font-size: 1rem;"></i>
+                Level
+            </button>
+            <button class="MenuBtn">
+                <i class="bi-info" style="font-size: 1rem;"></i>
+                About
+            </button>
+        </div>
+
+        <div class="Scene ColumnFlex" style="position: relative;top: -300%;background-color: white;" id="loadingScreen">
+            <p style="font-size: 10px;">Loading...</p>
+        </div>
+        
+    </div>
 </body>
 </html>

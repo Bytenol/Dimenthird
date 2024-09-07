@@ -1,16 +1,66 @@
+/*@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");*/
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../../assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', Georgia, Times, 'Times New Roman', serif;
+}
+
+.ColumnFlex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 body {
     width: 100vw;
     height: 100vh;
-    margin: 0;
-    padding: 0;
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#gameScene {
-    width: 100%;
-    height: 100%;
+#infoScene {
+    position: relative;
+    top: -100%;
+}
 
+#topInfo {
+    flex-direction: row;
+}
+
+button {
+    outline: none;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.ControlBtn {
+    border-radius: 50%;
+    padding: 10px;
+    color: #ccc;
+    font-weight: bolder;
+}
+
+#mainScene {
+    position: relative;
+    top: -200%;
+    background-color: white;
+}
+
+.MenuBtn {
+    margin: 5px;
 }

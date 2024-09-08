@@ -12,6 +12,8 @@
     box-sizing: border-box;
     font-family: 'Press Start 2P', Georgia, Times, 'Times New Roman', serif;
     transition: 1s;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .ColumnFlex {
@@ -30,11 +32,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#infoScene {
-    position: relative;
-    top: -100%;
 }
 
 #topInfo {

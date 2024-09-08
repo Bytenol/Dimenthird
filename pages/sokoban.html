@@ -13,11 +13,106 @@
 <body>
     <div id="gameScene">
 
+        <!--preloader -->
+        <div class="Scene ColumnFlex" style="background-color: white;" id="loadingScreen">
+            <p style="font-size: 10px;">Loading...</p>
+        </div>
+
+         <!-- menu scene -->
+         <div class="Scene ColumnFlex" id="menuScene" style="background-color: white;">
+            <div>
+                <img src="../assets/images/sokobanHead.png" style="width: 90px;height: 90px;">
+            </div>
+            <p style="font-size: 20px;">Sokoban 3D</p>
+            <button class="MenuBtn" id="continueBtn">
+                <i class="bi-play" style="font-size: 1rem;"></i>
+                Continue
+            </button>
+            <button class="MenuBtn" id="levelBtn">
+                <i class="bi-bar-chart" style="font-size: 1rem;"></i>
+                Level
+            </button>
+            <button class="MenuBtn" id="aboutBtn">
+                <i class="bi-info" style="font-size: 1rem;"></i>
+                About
+            </button>
+        </div>
+
+
+        <!-- select level scene -->
+        <div class="Scene ColumnFlex" id="levelSelectScene" style="font-size: 10px;background-color: rgb(163, 212, 216);">
+            <h3 style="margin-bottom: 10px;">Select Level</h3>
+            <table>
+                <tr>
+                    <td><button class="levelSelectBtn">1</button></td>
+                    <td><button class="levelSelectBtn">2</button></td>
+                    <td><button class="levelSelectBtn">3</button></td>
+                    <td><button class="levelSelectBtn">4</button></td>
+                    <td><button class="levelSelectBtn">5</button></td>
+                </tr>
+                <tr>
+                    <td><button class="levelSelectBtn">6</button></td>
+                    <td><button class="levelSelectBtn">7</button></td>
+                    <td><button class="levelSelectBtn">8</button></td>
+                    <td><button class="levelSelectBtn">9</button></td>
+                    <td><button class="levelSelectBtn">10</button></td>
+                </tr>
+                <tr>
+                    <td><button class="levelSelectBtn">11</button></td>
+                    <td><button class="levelSelectBtn">12</button></td>
+                    <td><button class="levelSelectBtn">13</button></td>
+                    <td><button class="levelSelectBtn">14</button></td>
+                    <td><button class="levelSelectBtn">15</button></td>
+                </tr>
+            </table>
+            <button class="MenuBtn" id="levelBackBtn">
+                <i class="bi-arrow-left" style="font-size: 1rem;"></i>
+                Back
+            </button>
+        </div>
+
+
+        <!-- about scene -->
+        <div class="Scene" id="aboutScene" style="line-height:2em; background-color: white;height:100%;padding:10px;position: relative;font-size: 10px;overflow: hidden;overflow-y: scroll;">
+            <div>
+                <button class="MenuBtn" id="aboutBackBtn">
+                    <i class="bi-arrow-left" style="font-size: 1rem;"></i>
+                    Back
+                </button>
+                <div style="margin-bottom: 10px;">
+                    <h2>About</h2>
+                    <small>This game was created by <a href="https://github.com/Bytenol/">Bytenol</a> on github a.k.a[RuntimeTerror]. More info about the history on sokoban could be found on <a href="https://en.wikipedia.org/wiki/Sokoban">https://en.wikipedia.org/wiki/Sokoban</a></small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Playing Strategy</h2>
+                    <small>Press the directional arrow keys on the screen or from the keyboard to let the worker move across the the factory. 
+                        If a crate is obstructing the workers path, he will try to push it forward to the same direction. The worker and the crate cannot move through the block and your objective is to push each block to their irrespected destination.
+                        You are allowed to reverse your action just on four consecutive times.
+                    </small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Credit</h2>
+                    <small>I designed steeve[Player] 3d model myself using blender. Other sprites and texture data are randomly source online.
+                        The level map design was obtained from the <a href="https://code.sololearn.com/WItp1XM2DGFm/#">code</a> on Sololearn
+                    </small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Contribute</h2>
+                    <small>Feel free to join my discord server and learn how to make your own games, networking and other programming related stuffs</small>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2>Copyright</h2>
+                    <small>&copy; Bytenol 2024.</small>
+                </div>
+            </div>
+        </div>
+
+
         <!-- game scene -->
         <div id="gamePlayingScene" class="Scene"></div>
 
         <!-- controls ui -->
-        <div id="infoScene" class="Scene ColumnFlex">
+        <div id="infoScene" class="Scene ColumnFlex" style="position: relative;top: -100%;">
             <div class="ColumnFlex" style="height: 15%;">
                 <div style="font-size: 10px;padding: 5px;background-color: rgba(0, 0, 0, 0.5);color:#ccc">
                     Level: <span id="levelTxt"></span>
@@ -82,98 +177,6 @@
                             </td>
                         </tr>
                     </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- menu scene -->
-        <div class="Scene ColumnFlex" id="menuScene" style="position: relative;top: -200%;background-color: white;">
-            <div>
-                <img src="../assets/images/sokobanHead.png" style="width: 90px;height: 90px;">
-            </div>
-            <p style="font-size: 20px;">Sokoban 3D</p>
-            <button class="MenuBtn" id="continueBtn">
-                <i class="bi-play" style="font-size: 1rem;"></i>
-                Continue
-            </button>
-            <button class="MenuBtn" id="levelBtn">
-                <i class="bi-bar-chart" style="font-size: 1rem;"></i>
-                Level
-            </button>
-            <button class="MenuBtn" id="aboutBtn">
-                <i class="bi-info" style="font-size: 1rem;"></i>
-                About
-            </button>
-        </div>
-
-        <!--preloader -->
-        <div class="Scene ColumnFlex" style="position: relative;top: -300%;background-color: white;" id="loadingScreen">
-            <p style="font-size: 10px;">Loading...</p>
-        </div>
-
-        <!-- select level scene -->
-        <div class="Scene ColumnFlex HideVisibility" id="levelSelectScene" style="font-size: 10px;position: relative;top:-300%;background-color: rgb(163, 212, 216);">
-            <h3 style="margin-bottom: 10px;">Select Level</h3>
-            <table>
-                <tr>
-                    <td><button class="levelSelectBtn">1</button></td>
-                    <td><button class="levelSelectBtn">2</button></td>
-                    <td><button class="levelSelectBtn">3</button></td>
-                    <td><button class="levelSelectBtn">4</button></td>
-                    <td><button class="levelSelectBtn">5</button></td>
-                </tr>
-                <tr>
-                    <td><button class="levelSelectBtn">6</button></td>
-                    <td><button class="levelSelectBtn">7</button></td>
-                    <td><button class="levelSelectBtn">8</button></td>
-                    <td><button class="levelSelectBtn">9</button></td>
-                    <td><button class="levelSelectBtn">10</button></td>
-                </tr>
-                <tr>
-                    <td><button class="levelSelectBtn">11</button></td>
-                    <td><button class="levelSelectBtn">12</button></td>
-                    <td><button class="levelSelectBtn">13</button></td>
-                    <td><button class="levelSelectBtn">14</button></td>
-                    <td><button class="levelSelectBtn">15</button></td>
-                </tr>
-            </table>
-            <button class="MenuBtn" id="levelBackBtn">
-                <i class="bi-arrow-left" style="font-size: 1rem;"></i>
-                Back
-            </button>
-        </div>
-
-        <!-- about scene -->
-        <div class="Scene" id="aboutScene" style="line-height:2em; background-color: white;height:100%;padding:10px;position: relative;top:-500%;font-size: 10px;z-index: 99999; ">
-            <div>
-                <button class="MenuBtn" id="aboutBackBtn">
-                    <i class="bi-arrow-left" style="font-size: 1rem;"></i>
-                    Back
-                </button>
-                <div style="margin-bottom: 10px;">
-                    <h2>About</h2>
-                    <small>This game was created by <a href="https://github.com/Bytenol/">Bytenol</a> on github a.k.a[RuntimeTerror]. More info about the history on sokoban could be found on <a href="https://en.wikipedia.org/wiki/Sokoban">https://en.wikipedia.org/wiki/Sokoban</a></small>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <h2>Playing Strategy</h2>
-                    <small>Press the directional arrow keys on the screen or from the keyboard to let the worker move across the the factory. 
-                        If a crate is obstructing the workers path, he will try to push it forward to the same direction. The worker and the crate cannot move through the block and your objective is to push each block to their irrespected destination.
-                        You are allowed to reverse your action just on four consecutive times.
-                    </small>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <h2>Credit</h2>
-                    <small>I designed steeve[Player] 3d model myself using blender. Other sprites and texture data are randomly source online.
-                        The level map design was obtained from the <a href="https://code.sololearn.com/WItp1XM2DGFm/#">code</a> on Sololearn
-                    </small>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <h2>Contribute</h2>
-                    <small>Feel free to join my discord server and learn how to make your own games, networking and other programming related stuffs</small>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <h2>Copyright</h2>
-                    <small>&copy; Bytenol 2024.</small>
                 </div>
             </div>
         </div>
